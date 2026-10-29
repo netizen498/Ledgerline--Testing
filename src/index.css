@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-bg text-ink font-body antialiased;
+    font-feature-settings: 'cv11', 'ss01';
+  }
+  h1, h2, h3, h4, h5 {
+    @apply font-heading;
+    letter-spacing: -0.01em;
+  }
+  ::selection {
+    @apply bg-accent/20 text-primary;
+  }
+}
+
+@layer components {
+  .container-px {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-8;
+  }
+  .eyebrow {
+    @apply font-heading text-xs font-semibold uppercase tracking-[0.18em] text-accent-600;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-[6px] font-heading text-sm font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent;
+  }
+  .btn-primary {
+    @apply btn bg-accent px-5 py-2.5 text-white hover:bg-accent-600 active:scale-[0.98] shadow-[0_1px_2px_rgba(79,124,255,0.3)];
+  }
+  .btn-navy {
+    @apply btn bg-primary px-5 py-2.5 text-white hover:bg-primary/90 active:scale-[0.98];
+  }
+  .btn-outline {
+    @apply btn border border-line bg-surface px-5 py-2.5 text-primary hover:border-accent hover:text-accent-600;
+  }
+  .btn-ghost {
+    @apply btn px-4 py-2 text-muted hover:text-primary;
+  }
+  .card {
+    @apply rounded-lg border border-line bg-surface;
+  }
+  .input {
+    @apply w-full rounded-[6px] border border-line bg-surface px-3.5 py-2.5 font-body text-sm text-primary placeholder:text-muted/70 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20;
+  }
+  .label {
+    @apply font-heading text-xs font-semibold uppercase tracking-wider text-muted;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
